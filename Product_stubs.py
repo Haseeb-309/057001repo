@@ -6,10 +6,19 @@ class Product:
       
   def get_price(self, quantity):
       pass
-    
-
+  
   def make_purchase(self, quantity):
-      pass 
+        if quantity <= 0:
+            print("Purchase quantity must be greater than zero.")
+        if quantity > self.amount:
+            print(f"Insufficient quantity: only {self.amount} items available.")
+        
+        total_price = self.get_price(quantity)
+        self.amount = self.amount - quantity
+        print(f"Purchase successful: {quantity} {self.name}(s) bought for ${total_price:.2f}.")
+        print(f"Remaining stock: {self.amount}")
+
+ 
   
 
 # create product object
