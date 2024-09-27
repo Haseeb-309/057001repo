@@ -5,6 +5,9 @@ class Product:
       self.price = price
       
   def get_price(self, quantity):
+     if quantity <= 0:
+            raise ValueError("Quantity must be greater than zero.")
+        
      if quantity < 10:
         unit_price = self.price
      if quantity >= 10 and quantity < 50:
@@ -27,10 +30,18 @@ class Product:
         print(f"Purchase successful: {quantity} {self.name}(s) bought for ${total_price:.2f}.")
         print(f"Remaining stock: {self.amount}")
 
+product = Product("Widget", 100, 10)
+product.make_purchase(5)  
+product.make_purchase(15)  
+product.make_purchase(60) 
+product.make_purchase(0)  
+product.make_purchase(200)     
+
  
   
 
-# create product object
-# make purchases against different product quantities (make sure to run each test case)
+
 # do not forget to handle exceptions
 # print the remaining stock after each purchase
+# create product object
+# make purchases against different product quantities (make sure to run each test case)
